@@ -2,4 +2,13 @@
     <string name="app_name">Kanila (Kantin UNILA)</string>
     <string name="fakultas">fakultas</string>
     <string name="detail">Detail</string>
+    <string name="fmipa">fmipa</string>
+    <string name="feb">feb</string>
+    <string name="fh">fh</string>
+    <string name="fp">fp</string>
+    <string name="fkip">fkip</string>
+    <string name="ft">ft</string>
+    <string name="fisip">fisip</string>
+    <string name="fk">fk</string>
+    <string name="copyright">© 2023 Kanila Developer Team. All Rights Reserved.</string>
 </resources>
