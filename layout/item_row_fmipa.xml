@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:id="@+id/parentLayout"
     android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="horizontal"
     android:padding="16dp">
 
+
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/img_item_fakultas"
+        android:id="@+id/img_item_fmipa"
         android:layout_width="55dp"
         android:layout_height="55dp"
         android:layout_marginEnd="16dp"
@@ -19,26 +19,25 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:layout_toEndOf="@+id/img_item_fakultas"
-        android:layout_toRightOf="@+id/img_item_fakultas"
+        android:layout_toEndOf="@+id/img_item_fmipa"
+        android:layout_toRightOf="@+id/img_item_fmipa"
         android:orientation="vertical">
-        
+
         <TextView
-            android:id="@+id/tv_item_name"
+            android:id="@+id/tv_item_namefmipa"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:textSize="16sp"
             android:textStyle="bold"
-            android:text="@string/fakultas"/>
+            android:text="@string/fmipa"/>
 
         <TextView
-            android:id="@+id/tv_detail"
+            android:id="@+id/tv_detailfmipa"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ellipsize="end"
             android:maxLines="2"
-            android:text="@string/detail"/>
+            android:text="@string/fmipa"/>
     </LinearLayout>
-
 </LinearLayout>

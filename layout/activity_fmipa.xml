@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".FMIPA">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_fakultas"
+        android:id="@+id/rv_fmipa"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/item_row_fakultas"/>
+        tools:listitem="@layout/item_row_fmipa"/>
 
     <RelativeLayout
         android:layout_width="match_parent"
