@@ -27,8 +27,11 @@ public class MainActivity extends AppCompatActivity {
 
     private void showRecyclerList(){
         rvFakultas.setLayoutManager(new LinearLayoutManager(this));
-        ListFakultasAdapter listFakultasAdapter = new ListFakultasAdapter(list);
+        ListFakultasAdapter listFakultasAdapter = new ListFakultasAdapter(this, list);
         rvFakultas.setAdapter(listFakultasAdapter);
+
     }
+
+
 
 }
