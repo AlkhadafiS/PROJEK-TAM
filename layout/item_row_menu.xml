@@ -8,7 +8,7 @@
 
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/img_item_ft"
+        android:id="@+id/img_item_menu"
         android:layout_width="55dp"
         android:layout_height="55dp"
         android:layout_marginEnd="16dp"
@@ -19,27 +19,36 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:layout_toEndOf="@+id/img_item_ft"
-        android:layout_toRightOf="@+id/img_item_ft"
+        android:layout_toEndOf="@+id/img_item_menu"
+        android:layout_toRightOf="@+id/img_item_menu"
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/tv_item_nameft"
+            android:id="@+id/tv_item_namemenu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:textSize="16sp"
             android:textStyle="bold"
-            android:text="@string/ft"
+            android:text="@string/menu"
             android:textColor="@color/black"/>
 
         <TextView
-            android:id="@+id/tv_detailft"
+            android:id="@+id/tv_detailmenu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ellipsize="end"
             android:maxLines="2"
-            android:text="@string/ft"
+            android:text="@string/menu"
             android:textColor="@color/black"/>
+
+        <Button
+            android:id="@+id/btn_call"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="500px"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:drawableRight="@drawable/ic_call"
+            android:text="Hubungi kantin" />
     </LinearLayout>
 </LinearLayout>

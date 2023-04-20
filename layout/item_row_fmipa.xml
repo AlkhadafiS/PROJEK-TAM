@@ -30,7 +30,8 @@
             android:layout_marginBottom="16dp"
             android:textSize="16sp"
             android:textStyle="bold"
-            android:text="@string/fmipa"/>
+            android:text="@string/fmipa"
+            android:textColor="@color/black"/>
 
         <TextView
             android:id="@+id/tv_detailfmipa"
@@ -38,6 +39,7 @@
             android:layout_height="wrap_content"
             android:ellipsize="end"
             android:maxLines="2"
-            android:text="@string/fmipa"/>
+            android:text="@string/fmipa"
+            android:textColor="@color/black"/>
     </LinearLayout>
 </LinearLayout>

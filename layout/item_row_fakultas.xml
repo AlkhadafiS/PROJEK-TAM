@@ -30,7 +30,8 @@
             android:layout_marginBottom="16dp"
             android:textSize="16sp"
             android:textStyle="bold"
-            android:text="@string/fakultas"/>
+            android:text="@string/fakultas"
+            android:textColor="@color/black"/>
 
         <TextView
             android:id="@+id/tv_detail"
@@ -38,7 +39,9 @@
             android:layout_height="wrap_content"
             android:ellipsize="end"
             android:maxLines="2"
-            android:text="@string/detail"/>
+            android:text="@string/detail"
+            android:textColor="@color/black"/>
+
     </LinearLayout>
 
 </LinearLayout>
