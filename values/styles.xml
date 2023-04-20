@@ -4,8 +4,8 @@
         <item name="android:windowBackground">#FFFFFF</item>
     </style>
 
-    <style name="Widget.Theme.KanilaApp.ActionBar.Fullscreen..ButtonBar.Fullscreen" parent="">
-        <item name="android:background">#FFFFFF</item>
-        <item name="android:buttonBarStyle">?android:attr/buttonBarStyle</item>
+    <style name="Theme.KanilaApp." parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorButtonNormal">@color/white</item>
     </style>
+
 </resources>

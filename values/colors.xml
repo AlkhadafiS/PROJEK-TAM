@@ -1,15 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
-    <color name="light_blue_600">#FF039BE5</color>
-    <color name="light_blue_900">#FF01579B</color>
-    <color name="light_blue_A200">#FF40C4FF</color>
-    <color name="light_blue_A400">#FF00B0FF</color>
-    <color name="black_overlay">#66000000</color>
+    <color name="purple_200">#BB86FC</color>
+    <color name="green">#1BD741</color>
+    <color name="purple_500">#6200EE</color>
+    <color name="purple_700">#3700B3</color>
+    <color name="teal_200">#03DAC5</color>
+    <color name="teal_700">#018786</color>
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="light_blue_600">#039BE5</color>
+    <color name="light_blue_900">#01579B</color>
+    <color name="light_blue_A200">#40C4FF</color>
+    <color name="light_blue_A400">#00B0FF</color>
+    <color name="red">#F42D2D</color>
+    <color name="dark_green">#1F8724</color>
+    <color name="feb">#FF9800</color>
+    <color name="orange">#FF923E</color>
+    <color name="pink">#FF6060</color>
+    <color name="sky_blue">#ff3fc0ff</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <array name="list_background_colors">
+        <item>#FFC107</item>
+        <item>#FF9800</item>
+        <item>#FF5722</item>
+        <item>#E91E63</item>
+        <item>#9C27B0</item>
+        <item>#673AB7</item>
+        <item>#2196F3</item>
+        <item>#00BCD4</item>
+    </array>
+
+<!--    #FFC107 (Kuning keemasan)-->
+<!--    #FF9800 (Orange tua)-->
+<!--    #FF5722 (Oranye kemerahan)-->
+<!--    #E91E63 (Merah jambu)-->
+<!--    #9C27B0 (Ungu tua)-->
+<!--    #673AB7 (Ungu)-->
+<!--    #2196F3 (Biru)-->
+<!--    #00BCD4 (Biru muda)-->
+
+<!--    #FFDAB9 (Peach Puff)-->
+<!--    #B0E0E6 (Powder Blue)-->
+<!--    #F0E68C (Khaki)-->
+<!--    #AFEEEE (Pale Turquoise)-->
+<!--    #FFB6C1 (Light Pink)-->
+<!--    #98FB98 (Pale Green)-->
+<!--    #FFC0CB (Pink)-->
+<!--    #ADD8E6 (Light Blue)-->
+
 </resources>
