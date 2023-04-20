@@ -1,5 +1,7 @@
 package com.example.kanilaapp;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,8 +19,10 @@ import java.util.ArrayList;
 public class ListFMIPAAdapter extends RecyclerView.Adapter<ListFMIPAAdapter.ListViewHolder> {
 
     private ArrayList<FMIPA> listfmipa;
+    private Context context;
 
-    public ListFMIPAAdapter(FMIPA fmipa, ArrayList<FMIPA> list) {
+    public ListFMIPAAdapter(Context context, ArrayList<FMIPA> list) {
+        this.context = context;
         this.listfmipa = list;
     }
 
@@ -39,6 +43,29 @@ public class ListFMIPAAdapter extends RecyclerView.Adapter<ListFMIPAAdapter.List
 
         holder.tvName.setText(fmipa.getName());
         holder.tvDetail.setText(fmipa.getDetail());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                int index = holder.getAdapterPosition();
+                Intent intent;
+
+                switch (index) {
+                    case 0:
+                    case 1:
+                    case 2:
+                        intent = new Intent(context, MENU.class);
+                        break;
+
+                    default:
+                        intent = new Intent(context, MainActivity.class);
+                        break;
+                }
+                intent.putExtra("fakultas_name", listfmipa.get(holder.getAdapterPosition()).getName());
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -48,6 +75,7 @@ public class ListFMIPAAdapter extends RecyclerView.Adapter<ListFMIPAAdapter.List
     }
 
     class ListViewHolder extends RecyclerView.ViewHolder {
+        public View parentLayout;
         ImageView imgPhoto;
         TextView tvName, tvDetail;
         ListViewHolder(View itemview) {
@@ -55,6 +83,7 @@ public class ListFMIPAAdapter extends RecyclerView.Adapter<ListFMIPAAdapter.List
             imgPhoto = itemview.findViewById(R.id.img_item_fmipa);
             tvName = itemview.findViewById(R.id.tv_item_namefmipa);
             tvDetail = itemview.findViewById(R.id.tv_detailfmipa);
+            parentLayout = itemview.findViewById(R.id.parentLayout);
         }
     }
 }

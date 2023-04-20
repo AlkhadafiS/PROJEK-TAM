@@ -1,5 +1,7 @@
 package com.example.kanilaapp;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,8 +19,10 @@ import java.util.ArrayList;
 public class ListFISIPAdapter extends RecyclerView.Adapter<ListFISIPAdapter.ListViewHolder> {
 
     private ArrayList<FISIP> listfisip;
+    private Context context;
 
-    public ListFISIPAdapter(FISIP fisip, ArrayList<FISIP> list) {
+    public ListFISIPAdapter(Context context, ArrayList<FISIP> list) {
+        this.context = context;
         this.listfisip = list;
     }
 
@@ -39,6 +43,29 @@ public class ListFISIPAdapter extends RecyclerView.Adapter<ListFISIPAdapter.List
 
         holder.tvName.setText(fisip.getName());
         holder.tvDetail.setText(fisip.getDetail());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                int index = holder.getAdapterPosition();
+                Intent intent;
+
+                switch (index) {
+                    case 0:
+                    case 1:
+                    case 2:
+                        intent = new Intent(context, MENU.class);
+                        break;
+
+                    default:
+                        intent = new Intent(context, MainActivity.class);
+                        break;
+                }
+                intent.putExtra("fakultas_name", listfisip.get(holder.getAdapterPosition()).getName());
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -48,6 +75,7 @@ public class ListFISIPAdapter extends RecyclerView.Adapter<ListFISIPAdapter.List
     }
 
     class ListViewHolder extends RecyclerView.ViewHolder {
+        public View parentLayout;
         ImageView imgPhoto;
         TextView tvName, tvDetail;
         ListViewHolder(View itemview) {
@@ -55,6 +83,7 @@ public class ListFISIPAdapter extends RecyclerView.Adapter<ListFISIPAdapter.List
             imgPhoto = itemview.findViewById(R.id.img_item_fisip);
             tvName = itemview.findViewById(R.id.tv_item_namefisip);
             tvDetail = itemview.findViewById(R.id.tv_detailfisip);
+            parentLayout = itemview.findViewById(R.id.parentLayout);
         }
     }
 }

@@ -28,4 +28,6 @@ public class fakultas {
     public void setPhoto(int photo) {
         this.photo = photo;
     }
+
+
 }

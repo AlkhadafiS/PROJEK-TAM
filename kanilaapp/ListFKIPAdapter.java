@@ -1,5 +1,7 @@
 package com.example.kanilaapp;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,8 +19,10 @@ import java.util.ArrayList;
 public class ListFKIPAdapter extends RecyclerView.Adapter<ListFKIPAdapter.ListViewHolder> {
 
     private ArrayList<FKIP> listfkip;
+    private Context context;
 
-    public ListFKIPAdapter(FKIP fkip, ArrayList<FKIP> list) {
+    public ListFKIPAdapter(Context context, ArrayList<FKIP> list) {
+        this.context = context;
         this.listfkip = list;
     }
 
@@ -39,6 +43,29 @@ public class ListFKIPAdapter extends RecyclerView.Adapter<ListFKIPAdapter.ListVi
 
         holder.tvName.setText(fkip.getName());
         holder.tvDetail.setText(fkip.getDetail());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                int index = holder.getAdapterPosition();
+                Intent intent;
+
+                switch (index) {
+                    case 0:
+                    case 1:
+                    case 2:
+                        intent = new Intent(context, MENU.class);
+                        break;
+
+                    default:
+                        intent = new Intent(context, MainActivity.class);
+                        break;
+                }
+                intent.putExtra("fakultas_name", listfkip.get(holder.getAdapterPosition()).getName());
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -48,6 +75,7 @@ public class ListFKIPAdapter extends RecyclerView.Adapter<ListFKIPAdapter.ListVi
     }
 
     class ListViewHolder extends RecyclerView.ViewHolder {
+        public View parentLayout;
         ImageView imgPhoto;
         TextView tvName, tvDetail;
         ListViewHolder(View itemview) {
@@ -55,6 +83,7 @@ public class ListFKIPAdapter extends RecyclerView.Adapter<ListFKIPAdapter.ListVi
             imgPhoto = itemview.findViewById(R.id.img_item_fkip);
             tvName = itemview.findViewById(R.id.tv_item_namefkip);
             tvDetail = itemview.findViewById(R.id.tv_detailfkip);
+            parentLayout = itemview.findViewById(R.id.parentLayout);
         }
     }
 }

@@ -1,7 +1,10 @@
 package com.example.kanilaapp;
 
+import android.graphics.Rect;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -46,6 +49,10 @@ public class FEB extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_feb);
 
+        getSupportActionBar().hide();
+        Typeface typeface = Typeface.createFromAsset(getAssets(), "kanila_font.otf");
+        TextView textView = findViewById(R.id.logo_textview);
+        textView.setTypeface(typeface);
         rvFEB = findViewById(R.id.rv_feb);
         rvFEB.setHasFixedSize(true);
 
@@ -58,5 +65,16 @@ public class FEB extends AppCompatActivity {
         ListFEBAdapter listFEBAdapter = new ListFEBAdapter(this, list);
         rvFEB.setAdapter(listFEBAdapter);
 
+//        RecyclerView.ItemDecoration itemDecoration = new RecyclerView.ItemDecoration() {
+//            @Override
+//            public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
+//                super.getItemOffsets(outRect, view, parent, state);
+//                int position = parent.getChildAdapterPosition(view);
+//                if (position >= 0) {
+//                    view.setBackgroundColor(getResources().getColor(R.color.feb)); // replace "yellow" with your desired color
+//                }
+//            }
+//        };
+//        rvFEB.addItemDecoration(itemDecoration);
     }
 }

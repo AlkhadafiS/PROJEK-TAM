@@ -2,32 +2,35 @@ package com.example.kanilaapp;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.PorterDuff;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.app.Activity;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ListFakultasAdapter extends RecyclerView.Adapter<ListFakultasAdapter.ListViewHolder> {
 
     private ArrayList<fakultas> listFakultas;
-
+    private OnItemClickCallBack onItemClickCallBack;
     private Context context;
 
-    LinearLayout parentLayout;
+    public void setOnItemClickCallBack(OnItemClickCallBack onItemClickCallBack) {
+        this.onItemClickCallBack = onItemClickCallBack;
+    }
 
     public ListFakultasAdapter(Context context, ArrayList<fakultas> list) {
+
         this.context = context;
         this.listFakultas = list;
     }
@@ -44,54 +47,27 @@ public class ListFakultasAdapter extends RecyclerView.Adapter<ListFakultasAdapte
         fakultas fakultas = listFakultas.get(position);
         Glide.with(holder.itemView.getContext())
                 .load(fakultas.getPhoto())
-                .apply(new RequestOptions().override(55,55))
+                .apply(new RequestOptions().override(55, 55))
                 .into(holder.imgPhoto);
 
         holder.tvName.setText(fakultas.getName());
         holder.tvDetail.setText(fakultas.getDetail());
 
+        int[] colors = holder.itemView.getResources().getIntArray(R.array.list_background_colors);
+        int color = colors[position % colors.length];
+        holder.parentLayout.setBackground(ContextCompat.getDrawable(holder.itemView.getContext(), R.drawable.rounded_background));
+        holder.parentLayout.getBackground().setColorFilter(color, PorterDuff.Mode.SRC_ATOP);
 
-        holder.parentLayout.setOnClickListener(new View.OnClickListener() {
+        // menambahkan padding pada setiap item
+        int padding = holder.itemView.getResources().getDimensionPixelSize(R.dimen.list_item_padding);
+        holder.parentLayout.setPadding(padding, padding, padding, padding);
 
-            @Override
-            public void onClick(View v) {
-            int index = holder.getAdapterPosition();
-            Intent intent;
+        // mengatur margin item agar tidak menempel pada sisi kanan
+        ViewGroup.MarginLayoutParams params = (ViewGroup.MarginLayoutParams) holder.parentLayout.getLayoutParams();
+        params.rightMargin = holder.itemView.getResources().getDimensionPixelSize(R.dimen.list_item_margin_right);
+        holder.parentLayout.setLayoutParams(params);
 
-            switch (index) {
-                case 0:
-                    intent = new Intent(context, FMIPA.class);
-                    break;
-                case 1:
-                    intent = new Intent(context, FEB.class);
-                    break;
-                case 2:
-                    intent = new Intent(context, FH.class);
-                    break;
-                case 3:
-                    intent = new Intent(context, FP.class);
-                    break;
-                case 4:
-                    intent = new Intent(context, FKIP.class);
-                    break;
-                case 5:
-                    intent = new Intent(context, FT.class);
-                    break;
-                case 6:
-                    intent = new Intent(context, FISIP.class);
-                    break;
-                case 7:
-                    intent = new Intent(context, FK.class);
-                    break;
-
-                default:
-                    intent = new Intent(context, MainActivity.class);
-                    break;
-            }
-                intent.putExtra("fakultas_name", listFakultas.get(holder.getAdapterPosition()).getName());
-                context.startActivity(intent);
-            }
-        });
+        holder.itemView.setOnClickListener(v -> onItemClickCallBack.onItemClicked(fakultas));
     }
 
     @Override
@@ -104,6 +80,7 @@ public class ListFakultasAdapter extends RecyclerView.Adapter<ListFakultasAdapte
         public View parentLayout;
         ImageView imgPhoto;
         TextView tvName, tvDetail;
+
         ListViewHolder(View itemview) {
             super(itemview);
             imgPhoto = itemview.findViewById(R.id.img_item_fakultas);
@@ -111,5 +88,9 @@ public class ListFakultasAdapter extends RecyclerView.Adapter<ListFakultasAdapte
             tvDetail = itemview.findViewById(R.id.tv_detail);
             parentLayout = itemview.findViewById(R.id.parentLayout);
         }
+    }
+
+    public interface OnItemClickCallBack {
+        void onItemClicked(fakultas data);
     }
 }

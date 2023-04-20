@@ -1,7 +1,9 @@
 package com.example.kanilaapp;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -46,6 +48,10 @@ public class FKIP extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fkip);
 
+        getSupportActionBar().hide();
+        Typeface typeface = Typeface.createFromAsset(getAssets(), "kanila_font.otf");
+        TextView textView = findViewById(R.id.logo_textview);
+        textView.setTypeface(typeface);
         rvFKIP = findViewById(R.id.rv_fkip);
         rvFKIP.setHasFixedSize(true);
 

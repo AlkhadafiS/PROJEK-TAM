@@ -1,5 +1,7 @@
 package com.example.kanilaapp;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,8 +19,9 @@ import java.util.ArrayList;
 public class ListFTAdapter extends RecyclerView.Adapter<ListFTAdapter.ListViewHolder> {
 
     private ArrayList<FT> listft;
-
-    public ListFTAdapter(FT ft, ArrayList<FT> list) {
+    private Context context;
+    public ListFTAdapter(Context context, ArrayList<FT> list) {
+        this.context = context;
         this.listft = list;
     }
 
@@ -39,6 +42,29 @@ public class ListFTAdapter extends RecyclerView.Adapter<ListFTAdapter.ListViewHo
 
         holder.tvName.setText(ft.getName());
         holder.tvDetail.setText(ft.getDetail());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                int index = holder.getAdapterPosition();
+                Intent intent;
+
+                switch (index) {
+                    case 0:
+                    case 1:
+                    case 2:
+                        intent = new Intent(context, MENU.class);
+                        break;
+
+                    default:
+                        intent = new Intent(context, MainActivity.class);
+                        break;
+                }
+                intent.putExtra("fakultas_name", listft.get(holder.getAdapterPosition()).getName());
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -48,6 +74,7 @@ public class ListFTAdapter extends RecyclerView.Adapter<ListFTAdapter.ListViewHo
     }
 
     class ListViewHolder extends RecyclerView.ViewHolder {
+        public View parentLayout;
         ImageView imgPhoto;
         TextView tvName, tvDetail;
         ListViewHolder(View itemview) {
@@ -55,6 +82,7 @@ public class ListFTAdapter extends RecyclerView.Adapter<ListFTAdapter.ListViewHo
             imgPhoto = itemview.findViewById(R.id.img_item_ft);
             tvName = itemview.findViewById(R.id.tv_item_nameft);
             tvDetail = itemview.findViewById(R.id.tv_detailft);
+            parentLayout = itemview.findViewById(R.id.parentLayout);
         }
     }
 }
