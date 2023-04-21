@@ -1,4 +1,4 @@
-Dalam memenuhi kebutuhan survey kebutuhan fungsional, saya telah mewawancarai secara lisan 5 mahasiswa/i dari fakultas yang berbeda yaitu :
+Dalam memenuhi kebutuhan survey kebutuhan fungsional, saya telah mewawancarai secara lisan dan daring 5 mahasiswa/i dari fakultas yang berbeda yaitu :
 - Muhammad Irfan Putra (2114181047) dari Fakultas Pertanian
 - Farrel Maheswara Alifian Djohan (2101061037) dari Fakultas Ekonomi dan Bisnis
 - Helmy Fathi Mukmin (2115031041) dari Fakultas Teknik
